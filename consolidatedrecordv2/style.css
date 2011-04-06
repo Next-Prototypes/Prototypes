@@ -93,6 +93,8 @@ a:visited{color: #526C11;}
 	z-index: 1;
 }
 /*IMAGE VIEWER*/
+.main.imageviewerpage{
+}
 .detailsbutton{	background: url('_/img/detailsbutton.jpg') no-repeat center top;
 	display: block;
 	width: 79px;
@@ -104,22 +106,66 @@ a:visited{color: #526C11;}
 	bottom: 30px;
 	left: 0;
 	width: 100%;
+	height: 45px;
 	background: black;
 	display: none;
 	overflow: hidden;
-	padding: 15px;
-	opacity: .8;
+	opacity: .7;
+}
+#imagepagination ul{
+	width:135px;
+	overflow: hidden;
+	position: absolute;
+	left: 55%;
+	top:12px;
 }
 #imagepagination ul li{
 	float: left;
 	display: block;
-	margin: 0 auto;
 	overflow: hidden;
+}
+#imagepagination ul li a{
+	display: block;
+	width: 37px;
+	height: 20px;
+	text-indent: -2000em;
 	position: relative;
-	left:450px;
+	padding: 0;
+}
+#imagepagination ul li #backarrow{
+	background: transparent url(_/img/paginationarrows.png) 0 -5px no-repeat;
+}
+#imagepagination ul li #forwardarrow{
+	background: transparent url(_/img/paginationarrows.png) 0 -30px no-repeat;
+}
+#imagepagination ul li #backarrow:hover{
+	background: transparent url(_/img/paginationarrows.png) 0 -58px no-repeat;
+}
+#imagepagination ul li #forwardarrow:hover{
+	background: transparent url(_/img/paginationarrows.png) 0 -80px no-repeat;
+}
+#imagepagination input[type="text"]{
+	color:#BAB0A3;
+	background: none;
+	border: none;
+	width: 50px;
+	padding: 2px;
+	margin: 2px;
+	text-align: center;
+}
+#imagepagination input[type="text"]:hover{
+	background: #4C4436
+}
+#imagepagination input[type="text"]:focus{
+	background: #fff;
+	color:#BAB0A3;
 }
 .image img{
 	margin: 25px 0 0 125px;
+	cursor: url(_/img/grab.cur), auto;
+}
+.image img:active{
+	cursor: url(_/img/grab-hand-pan.cur), auto;
 }
 .imagecontrols{ 
 	width: 44px; 
@@ -130,6 +176,7 @@ a:visited{color: #526C11;}
 	position: relative;
 	z-index: 100;
 	margin: 25px;
+	opacity: .7
 	}
 .main.imageviewerpage #leftnav{
 	position: relative;
@@ -195,8 +242,6 @@ a:visited{color: #526C11;}
 .main.imageviewerpage a.togglehandle.collapse:hover{
 	background: transparent url(./_/img/panelstates.png) -24px 0 no-repeat;	
 }
-
-
 .main.imageviewerpage{ position: relative;background: transparent url(./_/img/imageviewerrepeat.jpg) repeat;overflow: hidden;}
 .main.imageviewerpage .sidebar .content strong{font-weight: bold;}
 .imageviewerpage .sidebar ul li:hover{background: none;}
@@ -226,7 +271,7 @@ a:visited{color: #526C11;}
 	display: none;
 	z-index: 25;
 	position: absolute;
-	top:116px;
+	top:5px;
 	left: 42px;
 	text-indent: -2000em;
 	height: 38px;
@@ -240,22 +285,22 @@ a:visited{color: #526C11;}
 .main.imageviewerpage .about{
 	background: transparent url(./_/img/tooltips.png) 0 -49px no-repeat;
 	width: 78px;
-	top:189px;
+	top:78px;
 }
 .main.imageviewerpage .comments{
 	background: transparent url(./_/img/tooltips.png) 0 -92px no-repeat;
 	width: 102px;
-	top: 234px;
+	top: 125px;
 }
 .main.imageviewerpage .recent{
 	background: transparent url(./_/img/tooltips.png) 0 -146px no-repeat;
 	width: 125px;
-	top: 287px;
+	top: 180px;
 }
 .main.imageviewerpage .moreinfo{
 	background: transparent url(./_/img/tooltips.png) 0 -199px no-repeat;
 	width: 143px;
-	top: 342px;
+	top: 235px;
 }
 .image-detail-toggle{ background-image: url(_/img/imagedetailtogglebg.jpg); width: 100%; height: 55px; display: block;position: absolute;bottom: 140px; }
 .image-detail-toggle a.page{ width: 62px; height: 48px; background: url(_/img/image-context-sprite.png) left top; display: inline-block; margin-top: 4px; margin-left: 76px;}
@@ -295,6 +340,7 @@ a:visited{color: #526C11;}
 	position:absolute;
 	bottom: 0;	
 	left: 0;
+	z-index: 5000;
 }
 .toolbar a.button:hover{ background-position: center center;}
 .toolbar a.button:active{ background-position: center bottom;}
@@ -319,8 +365,16 @@ a:visited{color: #526C11;}
 	width: 74px;
 	height: 28px;text-indent: -9999px; margin-top: 7px; float: right; margin-right: 12px;}
 	
-.actions-dropdown{ width: 200px; height: 309px; position: absolute; display: block; right: 8px; top: 4px; background: url(_/img/actions.png) no-repeat left top; z-index: 2;}
-.actions-dropdown.hidden{ display: none;}
+.actions-dropdown{ 
+	width: 200px; 
+	height: 309px; 
+	position: absolute; 
+	display: none; 
+	right: 8px; 
+	top: 54px; 
+	background: url(_/img/actions.png) no-repeat left top; 
+	z-index: 5000;
+}
 .actions-dropdown h4 a{
 	font-weight: bold;
 	position: absolute;
@@ -339,6 +393,7 @@ a:visited{color: #526C11;}
 	top: 65px;
 	overflow: hidden;
 	width: 200px;
+	z-index: 5000;
 }
 .actions-dropdown li a{	
 	display: block;

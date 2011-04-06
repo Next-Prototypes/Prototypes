@@ -11,29 +11,29 @@
 		<a href="index.php" class="detailsbutton button">Details</a>
 		<h1>1920 United States Federal Census record for John Fitzgerald Kennedy</h1>
 		<a href="#" class="actions button">Actions</a>
-		<a href="#" class="save button">Save</a>
-		<div class="actions-dropdown hidden">
-			<h4 class="more"><a href="#">More Options</a></h4>
-			<ul>
-				<li><a href="#">View/Add alternate info</a></li>
-				<li><a href="#">Report image problem</a></li>
-				<li><a href="#">View printer friendly</a></li>
-				<li><a href="#">View blank census form</a></li>
-				<li><a href="#">Find others researching John F Kennedy</a></li>
-				<li><a href="#">Compare this record</a></li>
-			</ul>
-			<ul class="socialmediaicons">
-				<li><a href="#" class="facebook">facebook</a></li>
-				<li><a href="#" class="twitter">twitter</a></li>				
-				<li><a href="#" class="email">email</a></li>
-			</ul>
-			<h4 class="share"><a href="#">Share</a></h4>	
-		
-		</div>
+		<a href="#" class="save button">Save</a>		
 	</div>
 	<div class="loggedin">
 	</div>
 </div><!-- end top -->
+<div class="actions-dropdown">
+	<h4 class="more"><a href="#">More Options</a></h4>
+	<ul>
+		<li><a href="#">View/Add alternate info</a></li>
+		<li><a href="#">Report image problem</a></li>
+		<li><a href="#">View printer friendly</a></li>
+		<li><a href="#">View blank census form</a></li>
+		<li><a href="#">Find others researching John F Kennedy</a></li>
+		<li><a href="#">Compare this record</a></li>
+	</ul>
+	<ul class="socialmediaicons">
+		<li><a href="#" class="facebook">facebook</a></li>
+		<li><a href="#" class="twitter">twitter</a></li>				
+		<li><a href="#" class="email">email</a></li>
+	</ul>
+	<h4 class="share"><a href="#">Share</a></h4>	
+
+</div>
 <div class="main imageviewerpage">
 <div id="leftnav">
 	<ul>
@@ -45,15 +45,16 @@
 	</ul>
 </div>
 
-	<div class="sidebar">		
+	<div class="sidebar">	
 		<div class="content row">
 		</div>	
 	</div><!-- end side bar -->
-	<a class="togglehandle"><span class="open"></span></a>
+<a class="togglehandle"><span class="open"></span></a>
 	<div class="imagecontrols"></div>
 	<div class="imageviewer">
 		<div class="image">
-			<img src="_/img/document.png" alt="imageviewer" width="1024" height="739" id="draggable" />						
+			<img src="_/img/document.png" alt="imageviewer" width="1024" height="739" class="firstimage draggable" />		
+			<img src="_/img/record2.png" alt="imageviewer" width="1024" height="739" class="secondimage draggable" style="display:none;" />						
 		</div>				
 	</div><!-- end image viewer container-->			
 		<div class="tooltip index">index</div>
@@ -63,11 +64,11 @@
 		<div class="tooltip moreinfo">more</div>		
 </div><!-- end main -->
 <div id="imagepagination">
-	<ul>
-		<li><a href="">1</a></li>
-		<li><input type="text" value="1 - 3" /></li>
-		<li><a href="">2</a></li>												
-	</ul>
+			<ul>
+				<li><a href="javascript:void(0)" id="backarrow">1</a></li>
+				<li><input type="text" value="1 of 2" data-original="1 of 2" id="imagepage" /></li>
+				<li><a href="javascript:void(0)" id="forwardarrow">2</a></li>												
+			</ul>
 </div>	
 <div class="footer">
 	<div class="left">

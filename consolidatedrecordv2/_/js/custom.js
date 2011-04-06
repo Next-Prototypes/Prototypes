@@ -28,27 +28,36 @@ jQuery(document).ready(function() {
 		// Actions Dropdown
 		// Toggle notes active class
 			$('.actions').click(function(){
-			    $('.actions-dropdown').toggleClass('hidden');
-			});		
+			    $('.actions-dropdown').show();
+			},
+			$('.actions-dropdown').click(function(){
+				$('.actions-dropdown').hide();
+			})
+			);		
 			$('.actions-dropdown').mouseleave(function() {
-			    $('.actions-dropdown').toggleClass('hidden');
+			    $('.actions-dropdown').hide();
 			});	
-	// collapse sidebar.
+// collapse sidebar.
 	$(".togglehandle").click(function() {
 	  	var $left = $("div.sidebar");
-	    $left.animate({marginLeft: parseInt($left.css("marginLeft"),10) == 0 ? -$left.outerWidth() : 0 });		    
+	  	var $paginationtools = $('#imagepagination ul');
+	    $left.animate({marginLeft: parseInt($left.css("marginLeft"),10) == 0 ? -$left.outerWidth() : 0 });		 
+		$paginationtools.animate({marginLeft: parseInt($paginationtools.css("marginLeft"),10) == 0 ? -$paginationtools.outerWidth() : 0 });		    	       
         $(".togglehandle").toggleClass("collapse"); 
         $(".open").toggleClass("close");  
 	});	
 	$('.leftnavtoggle').click(function(){
-		  	var $left = $("div.sidebar");		  	
+		  	var $left = $("div.sidebar");
+	  		var $paginationtools = $('#imagepagination ul');		  			  	
 		  	if(parseInt($left.css("marginLeft"),10) < 0){ // if panel is closed, open it
 		    	$left.animate({marginLeft: 0 });		    
+				$paginationtools.animate({marginLeft: 0 });		    		    	
 	        	$(".togglehandle").toggleClass("collapse"); 
 	        	$(".open").toggleClass("close");          	
 	        }
 		    else if($(this).hasClass('lastclicked')) { // if it's open, and this button was the last one clicked, close it
-	  		    $left.animate({marginLeft: -$left.outerWidth() });	    
+	  		    $left.animate({marginLeft: -$left.outerWidth() });
+	  		    $paginationtools.animate({marginLeft: -$paginationtools.outerWidth() });	    
 	        	$(".togglehandle").toggleClass("collapse"); 
 	        	$(".open").toggleClass("close");  
 		    }		    
@@ -57,23 +66,45 @@ jQuery(document).ready(function() {
 		    $(this).addClass('lastclicked');
 	});			
 // tool container & tools
-$('.imageviewer').hover(function(){
-	});
-	/*$('.imageviewer').hover(function(){	
-		$('.imagecontrols').stop(true, true).fadeIn(300);
-		$('#imagepagination').stop(true, true).fadeIn(300);
-	}
-	
-	$('.imageviewer').hover(function(){
-		$('.imagecontrols').stop(true, true).fadeOut(350);
-		$('#imagepagination').stop(true, true).fadeOut(350);*/
-	
+$('.imageviewer, .imagecontrols, #imagepagination').hover(function(){	
+	if($('.imagecontrols') == $('.imagecontrols').fadeIn() || $('#imagepagination') == $('#imagepagination').fadeIn()){
+			$('.imagecontrols').stop(true);
+			$('#imagepagination').stop(true);
+		}	
+	else{	
+			$('.imagecontrols').stop(true).fadeIn(800, function(){
+				$(this).hover(function(){
+				$(this).fadeTo('fast', 1);
+				},$(this).fadeTo('fast', .7));
+			});
+			$('#imagepagination').stop(true).fadeIn(800, function(){
+				$(this).hover(function(){
+				$(this).fadeTo('fast', 1);
+				},$(this).fadeTo('fast', .7))
+			});
+		}
+	},	
+	$('.imageviewer, .imagecontrols, #imagepagination').hover(function(){
+		$('.imagecontrols').stop(true).fadeOut(300);
+		$('#imagepagination').stop(true).fadeOut(300);
+	})
+);	
 	 // fade in content.
 	 $(document).ready(function() {
 	 		$( '.sidebar ul' ).fadeIn("fast");
 	 		$( '.middle' ).fadeIn("fast");
 			$( '.content' ).fadeIn("fast");
 	  });
+	  $('#backarrow').click(function(){
+	  	$('.firstimage').fadeIn();
+	  	$('.secondimage').fadeOut();
+	  	$("#imagepage").val("1 of 2");	  	
+	  });
+	  $('#forwardarrow').click(function(){
+	  	$('.secondimage').fadeIn();
+	  	$('.firstimage').fadeOut();
+	  	$("#imagepage").val("2 of 2");
+	  });	  
 	//IMAGE VIEWER
 	//toggle tool tips for left nav
 	$('#index').hover(function(){
@@ -191,8 +222,31 @@ $('.microbutton').live('click',function(){
 	   }   			    		    
 	});  	
 	
-
+//index swap
+$('#indexinfo').live('click', function(){
+	$('#indexdetail').show();
+	$('#allpeople').show()
+	$('#indexoverview').hide();
+	$('#indexinfo').hide();
+});
+$('#allpeople').live('click', function(){
+	$('#indexdetail').hide();
+	$('#allpeople').hide()
+	$('#indexoverview').show();
+	$('#indexinfo').show();	
+});
 //DRAGGABLE IMAGE	
 	// notes here
-	$('#draggable').draggable();
+	$( ".draggable" ).draggable({
+   		drag: function() {
+ 		$('.imagecontrols, #imagepagination').fadeOut(100);
+   	},
+   	stop: function(){
+   		$('.imagecontrols, #imagepagination').fadeIn(100);
+   	},
+   	start: function(){
+   		$('.imagecontrols, #imagepagination').fadeOut(100);
+   	}    	  	
+});	
+
 });
