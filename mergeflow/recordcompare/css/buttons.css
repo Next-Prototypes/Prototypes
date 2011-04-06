@@ -1,0 +1,184 @@
+/* Buttons
+--------------------------------------------- */
+.button, button, input[type="submit"] {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    padding: .5em 2em .55em;
+        -webkit-border-radius: .35em;
+    -moz-border-radius: .35em;
+    border-radius: .25em;
+    color: #fff !important;
+    
+    -webkit-box-shadow: 0 1px 1px rgba(255,255,255,0.3), inset 0 1px rgba(255,255,255,0.1), inset 0 1px rgba(255,255,255,0.1), inset 0 1px rgba(255,255,255,0.1), inset 0 1px rgba(255,255,255,0.1);
+    -moz-box-shadow: 0 1px 1px rgba(255,255,255,0.3), inset 0 1px rgba(255,255,255,0.1), inset 0 1px rgba(255,255,255,0.1), inset 0 1px rgba(255,255,255,0.1), inset 0 1px rgba(255,255,255,0.1);
+    box-shadow: 0 1px 1px rgba(255,255,255,0.3), inset 0 1px rgba(255,255,255,0.1), inset 0 1px rgba(255,255,255,0.1), inset 0 1px rgba(255,255,255,0.1), inset 0 1px rgba(255,255,255,0.1);
+    /* Make the text unselectable */
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    position: relative;
+}
+/* Button States - Common */
+.button:hover,
+.button:focus { }
+.button:active { 
+    -webkit-box-shadow: 0 1px 1px rgba(255,255,255,0.5);
+    -moz-box-shadow: 0 1px 1px rgba(255,255,255,0.5);
+    box-shadow: 0 1px 1px rgba(255,255,255,0.5);
+    text-decoration: none !important;
+}
+.button.disabled:active { top: 0 !important; }
+/* Button Sizes */
+.button.large { font-size: 16px; padding: .7em 1em .8em 1em; }
+.button.medium { font-size: 14px; padding: .4em .9em .5em .9em; }
+.button.small { font-size: 12px; padding: .4em 1em .45em 1em; }
+/* Orange Buttons */
+.button.primary {
+    border: solid 1px #965200;
+    background: #e98300;
+    background: -webkit-gradient(linear, left top, left bottom, from(#e98300), to(#B86500));
+    background: -moz-linear-gradient(top, #e98300, #B86500);
+}
+.button.primary:hover,
+.button.primary:focus { 
+    background: #965200;
+    background: -webkit-gradient(linear, left top, left bottom, from(#c77000), to(#965200));
+    background: -moz-linear-gradient(top, #c77000, #965200);
+}
+.button.primary:active { background: #B86500; }
+.button.primary.disabled {
+    opacity: .5; cursor:default !important;
+    background: #e98300;
+    background: -webkit-gradient(linear, left top, left bottom, from(#e98300), to(#B86500));
+    background: -moz-linear-gradient(top, #e98300, #B86500);
+}
+/* Green Buttons */
+.button.secondary1:after{
+    content: attr(data-icon);
+    margin-left: 4px;
+}
+.button.secondary1 {
+    border: solid 1px #4A5D0F;
+    background: #566c11 url(/_/img/toolbararrow.png);
+    background: -webkit-gradient(linear, left top, left bottom, from(#AFBC22), to(#566c11));
+    background: -moz-linear-gradient(top, #AFBC22, #566c11);
+}
+.button.secondary1:hover,
+.button.secondary1:focus { 
+    background: #3f4f0c;
+    background: -webkit-gradient(linear, left top, left bottom, from(#949f1d), to(#3f4f0c));
+    background: -moz-linear-gradient(top, #949f1d, #3f4f0c);
+}
+.button.secondary1:active { background: #566c11; }
+.button.secondary1.disabled {
+    opacity: .5; cursor:default !important;
+    background: #566c11;
+    background: -webkit-gradient(linear, left top, left bottom, from(#AFBC22), to(#566c11));
+    background: -moz-linear-gradient(top, #AFBC22, #566c11);
+}
+/* Brown Buttons */
+.button.secondary2 {
+    border: solid 1px #675E46;
+    background: #675E46;
+    background: -webkit-gradient(linear, left top, left bottom, from(#9E9172), to(#675E46));
+    background: -moz-linear-gradient(top, #9E9172, #675E46);
+}
+.button.secondary2:hover,
+.button.secondary2:focus { 
+    background: #534c38;
+    background: -webkit-gradient(linear, left top, left bottom, from(#8d8061), to(#534c38));
+    background: -moz-linear-gradient(top, #8d8061, #534c38);
+}
+.button.secondary2:active { background: #675E46; }
+.button.secondary2.disabled {
+    opacity: .5; cursor:default !important;
+    background: #675E46;
+    background: -webkit-gradient(linear, left top, left bottom, from(#9E9172), to(#675E46));
+    background: -moz-linear-gradient(top, #9E9172, #675E46);
+}
+/* Light Tan Buttons */
+.button.save, .button.secondary3 {
+    border: solid 1px #B09E90;
+    background: #E2DECD;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FBFBF8), to(#E2DECD));
+    background: -moz-linear-gradient(top, #FBFBF8, #E2DECD);
+	text-decoration: none;
+	font-size:14px;
+	font-weight: bold;
+	color: #695E49 !important;
+	padding:.6em 1em .55em 1em;	
+}
+.button.save{
+	padding-right: 20px;
+	width:65px;
+}
+.button.secondary3{
+	color:#41510D!important;
+}
+.button.save:hover, .button.secondary3:hover, 
+.button.save:focus, .button.secondary3:focus { 
+    background: #d6d0b8;
+    background: -webkit-gradient(linear, left top, left bottom, from(#efefe2), to(#d6d0b8));
+    background: -moz-linear-gradient(top, #efefe2, #d6d0b8);
+    text-decoration: none;
+}
+.button.save:active, .button.secondary3:active { background: #E2DECD; }
+.button.save.disabled, .button.secondary3:disabled {
+    opacity: .5; cursor:default !important;
+    background: #E2DECD;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FBFBF8), to(#E2DECD));
+    background: -moz-linear-gradient(top, #FBFBF8, #E2DECD);
+}
+.button.save span{
+	background: transparent url(../images/buttonarrow.png) 0 0 no-repeat;
+	width:12px;
+	height: 14px;
+	display: block;
+	position: absolute;
+	right:2px;
+	top:9px;
+}
+.button.more, .button.more:hover{
+    border: none;
+    background: #B0AE9F;
+    text-shadow: none;
+    color: #fff;
+    font-size: 10px;
+    padding:.2em .5em;
+    margin:0 0 0 10px;
+    font-weight: bold;
+    text-decoration: none!important;
+    float: left;
+}
+
+
+/* Button Group
+--------------------------------------------- */
+.button-group { display: inline:block; }
+.button-group .button { float: left; }
+.button-group .button:first-child {
+    -webkit-border-top-right-radius: 0;
+    -moz-border-radius-topright: 0;
+    border-top-right-radius: 0;
+    -webkit-border-bottom-right-radius: 0;
+    -moz-border-radius-bottomright: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+}
+.button-group .button:last-child {
+    -webkit-border-top-left-radius: 0;
+    -moz-border-radius-topleft: 0;
+    border-top-left-radius: 0;
+    -webkit-border-bottom-left-radius: 0;
+    -moz-border-radius-bottomleft: 0;
+    border-bottom-left-radius: 0;
+    border-left: 0;
+}
+.button-group .button:not(:first-of-type):not(:last-of-type) { 
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
